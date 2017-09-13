@@ -1,0 +1,19 @@
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\ACS.Advanced IP.exe.config
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\ACS.Advanced IP.exe
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\ACS.Advanced IP.pdb
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced IP.csprojResolveAssemblyReference.cache
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced_IP.Properties.Resources.resources
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced IP.csproj.GenerateResource.Cache
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced IP.exe
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced IP.pdb
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced_IP._Form_Login.resources
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\EntityFramework.dll
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\EntityFramework.SqlServer.dll
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\System.Data.SQLite.dll
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\System.Data.SQLite.EF6.dll
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\System.Data.SQLite.Linq.dll
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\EntityFramework.xml
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\EntityFramework.SqlServer.xml
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\bin\Debug\System.Data.SQLite.xml
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced_IP._Form_Main.resources
+D:\VANDUAN\Project\ACS.Advanced IP\ACS.Advanced IP\obj\Debug\ACS.Advanced_IP._Form_TreeView.resources
