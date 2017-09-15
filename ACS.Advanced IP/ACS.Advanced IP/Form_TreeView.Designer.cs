@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,21 +69,33 @@
             this._tabPage_tw1 = new System.Windows.Forms.TabPage();
             this._dataGridView_result = new System.Windows.Forms.DataGridView();
             this._tabControl = new System.Windows.Forms.TabControl();
-            this._dataGird_col_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._dataGird_col_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._dataGird_col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._dataGird_col_IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._dataGird_col_netBIOSg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._dataGird_col_manufac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._dataGird_col_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._dataGird_col_netBIOSg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._dataGird_col_remote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._dataGird_col_cmts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._contextMenuStrip_result = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exploreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deepScanSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shutdownToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.abortShutdownToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteDesktopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tracertToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.telnetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sSHToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this._tabPage_tw1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView_result)).BeginInit();
             this._tabControl.SuspendLayout();
+            this._contextMenuStrip_result.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -410,7 +423,7 @@
             this._dataGridView_result.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -418,13 +431,12 @@
             this._dataGridView_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._dataGridView_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._dataGridView_result.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._dataGird_col_group,
             this._dataGird_col_status,
             this._dataGird_col_name,
             this._dataGird_col_IP,
-            this._dataGird_col_netBIOSg,
-            this._dataGird_col_manufac,
             this._dataGird_col_user,
+            this._dataGird_col_netBIOSg,
+            this._dataGird_col_remote,
             this._dataGird_col_cmts,
             this.Column1});
             this._dataGridView_result.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
@@ -436,7 +448,8 @@
             this._dataGridView_result.RowTemplate.ReadOnly = true;
             this._dataGridView_result.Size = new System.Drawing.Size(1169, 467);
             this._dataGridView_result.TabIndex = 0;
-            this._dataGridView_result.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this._dataGridView_result.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this._dataGridView_result.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._dataGridView_result_CellMouseUp);
             // 
             // _tabControl
             // 
@@ -449,14 +462,6 @@
             this._tabControl.SelectedIndex = 0;
             this._tabControl.Size = new System.Drawing.Size(1183, 502);
             this._tabControl.TabIndex = 5;
-            // 
-            // _dataGird_col_group
-            // 
-            this._dataGird_col_group.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this._dataGird_col_group.FillWeight = 166.8615F;
-            this._dataGird_col_group.HeaderText = "Group";
-            this._dataGird_col_group.Name = "_dataGird_col_group";
-            this._dataGird_col_group.ReadOnly = true;
             // 
             // _dataGird_col_status
             // 
@@ -474,7 +479,7 @@
             this._dataGird_col_name.HeaderText = "Name";
             this._dataGird_col_name.Name = "_dataGird_col_name";
             this._dataGird_col_name.ReadOnly = true;
-            this._dataGird_col_name.Width = 200;
+            this._dataGird_col_name.Width = 300;
             // 
             // _dataGird_col_IP
             // 
@@ -485,24 +490,6 @@
             this._dataGird_col_IP.ReadOnly = true;
             this._dataGird_col_IP.Width = 191;
             // 
-            // _dataGird_col_netBIOSg
-            // 
-            this._dataGird_col_netBIOSg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this._dataGird_col_netBIOSg.FillWeight = 15.45014F;
-            this._dataGird_col_netBIOSg.HeaderText = "NetBIOS group";
-            this._dataGird_col_netBIOSg.Name = "_dataGird_col_netBIOSg";
-            this._dataGird_col_netBIOSg.ReadOnly = true;
-            this._dataGird_col_netBIOSg.Width = 120;
-            // 
-            // _dataGird_col_manufac
-            // 
-            this._dataGird_col_manufac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this._dataGird_col_manufac.FillWeight = 15.45014F;
-            this._dataGird_col_manufac.HeaderText = "Manufacture";
-            this._dataGird_col_manufac.Name = "_dataGird_col_manufac";
-            this._dataGird_col_manufac.ReadOnly = true;
-            this._dataGird_col_manufac.Width = 120;
-            // 
             // _dataGird_col_user
             // 
             this._dataGird_col_user.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -512,13 +499,30 @@
             this._dataGird_col_user.ReadOnly = true;
             this._dataGird_col_user.Width = 150;
             // 
+            // _dataGird_col_netBIOSg
+            // 
+            this._dataGird_col_netBIOSg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this._dataGird_col_netBIOSg.FillWeight = 15.45014F;
+            this._dataGird_col_netBIOSg.HeaderText = "NetBIOS group";
+            this._dataGird_col_netBIOSg.Name = "_dataGird_col_netBIOSg";
+            this._dataGird_col_netBIOSg.ReadOnly = true;
+            this._dataGird_col_netBIOSg.Width = 150;
+            // 
+            // _dataGird_col_remote
+            // 
+            this._dataGird_col_remote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this._dataGird_col_remote.FillWeight = 15.45014F;
+            this._dataGird_col_remote.HeaderText = "Remote Desktop";
+            this._dataGird_col_remote.Name = "_dataGird_col_remote";
+            this._dataGird_col_remote.ReadOnly = true;
+            this._dataGird_col_remote.Width = 150;
+            // 
             // _dataGird_col_cmts
             // 
             this._dataGird_col_cmts.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this._dataGird_col_cmts.FillWeight = 15.45014F;
-            this._dataGird_col_cmts.HeaderText = "Comments";
+            this._dataGird_col_cmts.HeaderText = "VNC";
             this._dataGird_col_cmts.Name = "_dataGird_col_cmts";
-            this._dataGird_col_cmts.Width = 191;
             // 
             // Column1
             // 
@@ -526,6 +530,90 @@
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            // 
+            // _contextMenuStrip_result
+            // 
+            this._contextMenuStrip_result.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exploreToolStripMenuItem1,
+            this.deepScanSelectedToolStripMenuItem,
+            this.shutdownToolStripMenuItem1,
+            this.abortShutdownToolStripMenuItem1,
+            this.toolToolStripMenuItem1,
+            this.remoteDesktopToolStripMenuItem,
+            this.vNCToolStripMenuItem});
+            this._contextMenuStrip_result.Name = "_contextMenuStrip_result";
+            this._contextMenuStrip_result.Size = new System.Drawing.Size(175, 158);
+            // 
+            // exploreToolStripMenuItem1
+            // 
+            this.exploreToolStripMenuItem1.Name = "exploreToolStripMenuItem1";
+            this.exploreToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.exploreToolStripMenuItem1.Text = "Explore";
+            // 
+            // deepScanSelectedToolStripMenuItem
+            // 
+            this.deepScanSelectedToolStripMenuItem.Name = "deepScanSelectedToolStripMenuItem";
+            this.deepScanSelectedToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.deepScanSelectedToolStripMenuItem.Text = "Deep scan selected";
+            // 
+            // shutdownToolStripMenuItem1
+            // 
+            this.shutdownToolStripMenuItem1.Name = "shutdownToolStripMenuItem1";
+            this.shutdownToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.shutdownToolStripMenuItem1.Text = "Shutdown";
+            // 
+            // abortShutdownToolStripMenuItem1
+            // 
+            this.abortShutdownToolStripMenuItem1.Name = "abortShutdownToolStripMenuItem1";
+            this.abortShutdownToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.abortShutdownToolStripMenuItem1.Text = "Abort shutdown";
+            // 
+            // toolToolStripMenuItem1
+            // 
+            this.toolToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pingToolStripMenuItem1,
+            this.tracertToolStripMenuItem1,
+            this.telnetToolStripMenuItem,
+            this.sSHToolStripMenuItem2});
+            this.toolToolStripMenuItem1.Name = "toolToolStripMenuItem1";
+            this.toolToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.toolToolStripMenuItem1.Text = "Tools";
+            // 
+            // remoteDesktopToolStripMenuItem
+            // 
+            this.remoteDesktopToolStripMenuItem.Name = "remoteDesktopToolStripMenuItem";
+            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.remoteDesktopToolStripMenuItem.Text = "Remote Desktop";
+            // 
+            // vNCToolStripMenuItem
+            // 
+            this.vNCToolStripMenuItem.Name = "vNCToolStripMenuItem";
+            this.vNCToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.vNCToolStripMenuItem.Text = "VNC";
+            // 
+            // pingToolStripMenuItem1
+            // 
+            this.pingToolStripMenuItem1.Name = "pingToolStripMenuItem1";
+            this.pingToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.pingToolStripMenuItem1.Text = "Ping";
+            // 
+            // tracertToolStripMenuItem1
+            // 
+            this.tracertToolStripMenuItem1.Name = "tracertToolStripMenuItem1";
+            this.tracertToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.tracertToolStripMenuItem1.Text = "Tracert";
+            // 
+            // telnetToolStripMenuItem
+            // 
+            this.telnetToolStripMenuItem.Name = "telnetToolStripMenuItem";
+            this.telnetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.telnetToolStripMenuItem.Text = "Telnet";
+            // 
+            // sSHToolStripMenuItem2
+            // 
+            this.sSHToolStripMenuItem2.Name = "sSHToolStripMenuItem2";
+            this.sSHToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.sSHToolStripMenuItem2.Text = "SSH";
             // 
             // _Form_TreeView
             // 
@@ -550,6 +638,7 @@
             this._tabPage_tw1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView_result)).EndInit();
             this._tabControl.ResumeLayout(false);
+            this._contextMenuStrip_result.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,14 +684,25 @@
         private System.Windows.Forms.TabPage _tabPage_tw1;
         private System.Windows.Forms.TabControl _tabControl;
         private System.Windows.Forms.DataGridView _dataGridView_result;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_group;
         private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_IP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_netBIOSg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_manufac;
         private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_netBIOSg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_remote;
         private System.Windows.Forms.DataGridViewTextBoxColumn _dataGird_col_cmts;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.ContextMenuStrip _contextMenuStrip_result;
+        private System.Windows.Forms.ToolStripMenuItem exploreToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deepScanSelectedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shutdownToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem abortShutdownToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pingToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tracertToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem telnetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sSHToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem remoteDesktopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vNCToolStripMenuItem;
     }
 }

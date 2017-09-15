@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Net.NetworkInformation;
+using System.Threading;
+using System.Diagnostics;
 
 namespace ACS.Advanced_IP
 {
@@ -15,9 +18,13 @@ namespace ACS.Advanced_IP
     {
         public static SQLiteConnection v_conn;
         public static List<String> v_ipvlan;
+        public static List<String> v_ip_alive;
+        public static Int32 v_rowIndex;
 
 
         Class_Func v_class_func = new Class_Func();
+
+        public object Spinwait { get; private set; }
 
         public _Form_TreeView(SQLiteConnection conn)
         {
@@ -61,34 +68,46 @@ namespace ACS.Advanced_IP
 
         private void _button_scan_Click(object sender, EventArgs e)
         {
+            _dataGridView_result.Rows.Clear();
+            _dataGridView_result.Refresh();
             _button_stop.Enabled = true;
             _button_pause.Enabled = true;
             String v_ipaddress = null;
             List<String> v_ip_listscan = null;
             try
             {
-
                 // VLAN from database
-
                 v_ipaddress = (_comboBox_ipvlan.SelectedItem as ComboBoxItem).Text.ToString().Split(':')[1];
-
-
             }
             catch (Exception)
             {
                 // enter ipaddress 
                 v_ipaddress = _comboBox_ipvlan.Text;
-                v_ip_listscan = v_class_func._get_listip_ipvlan(v_ipaddress); // get list ip to scan
-
             }
             //v_ipaddress = _comboBox_ipvlan.Text;
-            MessageBox.Show(v_ipaddress);
+            v_ip_listscan = v_class_func._get_listip_ipvlan(v_ipaddress); // get list ip to scan
+                                                                          //MessageBox.Show(v_ip_listscan[2]);
+                                                                          /*
+            foreach (String ip in v_ip_listscan)
+            {
+                string[] row = new string[] { "Status", "Name", ip, "NetBIOS", "User", "Remote", "VNC" };
+                _dataGridView_result.Rows.Add(row);
+            }
+            */
+                                                                          //_dataGridView_result.Rows[2].SetValues("", "1.1.1.1\nRemote connect\nVNC", "", "", "", "", "");
+                                                                          //_dataGridView_result.Rows.Insert(2, (new string[] { "", "Remote connect", "", "", "", "", "" }));
 
+            // start ping
+            //Class_Ping pig = new Class_Ping(v_ip_listscan);
+            
+            //v_ip_alive = pig.pingping(v_ip_listscan);
         }
 
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //MessageBox.Show(""+ _dataGridView_result.CurrentCell.RowIndex);
+            _dataGridView_result.Rows[_dataGridView_result.CurrentCell.RowIndex].Selected = true;
         }
 
         private void _comboBox_ipvlan_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +155,20 @@ namespace ACS.Advanced_IP
             {
                 _button_scan.Enabled = false;
                 _comboBox_ipvlan.ForeColor = Color.Red;
+            }
+        }
+
+        private void _dataGridView_result_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                _dataGridView_result.Rows[v_rowIndex].Selected = false;
+                v_rowIndex = e.RowIndex;
+                _dataGridView_result.Refresh();
+                _dataGridView_result.Rows[e.RowIndex].Selected = true;
+                _contextMenuStrip_result.Show(_dataGridView_result, e.Location);
+                _contextMenuStrip_result.Show(Cursor.Position);
+                //_dataGridView_result.Rows[e.RowIndex].Selected = false;
             }
         }
     }

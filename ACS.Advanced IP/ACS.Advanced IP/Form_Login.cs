@@ -157,7 +157,7 @@ namespace ACS.Advanced_IP
         private void button1_Click_2(object sender, EventArgs e)
         {
             // open file database sqlite (version 3)
-            int v_size = -1;
+            //int v_size = -1;
             OpenFileDialog v_openfdl = new OpenFileDialog();
             v_openfdl.Title = "Select database for ACS.Advanced IP";
             //v_openfdl.InitialDirectory = @"C:\";
