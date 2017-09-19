@@ -1,0 +1,18 @@
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\ACS.Inventory Management.exe.config
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\ACS.Inventory Management.exe
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\ACS.Inventory Management.pdb
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\EntityFramework.dll
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\EntityFramework.SqlServer.dll
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\System.Data.SQLite.dll
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\System.Data.SQLite.EF6.dll
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\System.Data.SQLite.Linq.dll
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\EntityFramework.xml
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\EntityFramework.SqlServer.xml
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\bin\Debug\System.Data.SQLite.xml
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.2016 IT Storage Management - HCM.csprojResolveAssemblyReference.cache
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.Inventory_Management.Form_Login.resources
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.Inventory_Management.Form_Main.resources
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.Inventory_Management.Properties.Resources.resources
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.2016 IT Storage Management - HCM.csproj.GenerateResource.Cache
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.Inventory Management.exe
+D:\VANDUAN\Project\ACS.Inventory Management\ACS.Inventory Management\obj\Debug\ACS.Inventory Management.pdb
