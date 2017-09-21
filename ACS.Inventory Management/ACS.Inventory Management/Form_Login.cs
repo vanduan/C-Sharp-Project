@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ACS.Inventory_Management
 {
@@ -17,7 +18,7 @@ namespace ACS.Inventory_Management
         private static Boolean v_isClickConfig = false;
         public static SQLiteConnection v_conn;
 
-        
+
         /*
          *  v_access
          *  value: 0 -> Admin (full access)
@@ -34,7 +35,7 @@ namespace ACS.Inventory_Management
         private void Form_Login_Load(object sender, EventArgs e)
         {
             Size = new Size(442, 136); // set default size form login
-            
+
             // set to test
             _textBox_file_db.Text = "D:\\VANDUAN\\Project\\ACS.Inventory Management\\ACS.Inventory Management.sqlite";
             _textBox_passwd_file_db.Text = "@eon1t123";
@@ -64,12 +65,14 @@ namespace ACS.Inventory_Management
                 // show menu config
                 Size = new Size(442, 290);
                 v_isClickConfig = true;
+                _button_config.Text = "Config <<";
             }
             else
             {
                 // hide menu config
                 Size = new Size(442, 148);
                 v_isClickConfig = false;
+                _button_config.Text = "Config >>";
             }
         }
 
@@ -78,7 +81,7 @@ namespace ACS.Inventory_Management
             // open file database sqlite (version 3)
 
             OpenFileDialog openfdl = new OpenFileDialog();
-            openfdl.Title = "Select database for ACS.Advanced IP";
+            openfdl.Title = "IT Storage Management Database";
             //v_openfdl.InitialDirectory = @"C:\";
             openfdl.Filter = "All files (*.*)|*.*| Sqlite (*.sqlite)|*.sqlite";
             openfdl.FilterIndex = 2;
@@ -121,8 +124,19 @@ namespace ACS.Inventory_Management
 
         private void _button_login_Click(object sender, EventArgs e)
         {
-            if (check_user())
-                openMainForm();
+            try
+            {
+                string fileName = _textBox_file_db.Text;
+                string passwd = _textBox_passwd_file_db.Text;
+                v_conn = new System.Data.SQLite.SQLiteConnection("Data Source=" + fileName.Replace("\\", "\\\\") + ";Version=3;Password=" + passwd + ";");
+
+                if (check_user())
+                    openMainForm();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Can't login right now.\n Please check your config!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void openMainForm()
@@ -158,7 +172,7 @@ namespace ACS.Inventory_Management
                 r.Read(); // read data
                 username = Convert.ToString(r["username"]);
                 passwd = Convert.ToString(r["password"]);
-                
+
                 // compare
                 if (_textBox_username.Text == username)
                 {

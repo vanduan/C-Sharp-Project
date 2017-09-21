@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ACS.Inventory_Management
 {
@@ -18,6 +19,8 @@ namespace ACS.Inventory_Management
         private string v_username;
 
         private static List<string[]> v_category;
+
+        private static string v_selectNodeText = null; // to reload datagirdview
 
         public Form_Main(SQLiteConnection v_conn, int v_acces, string text)
         {
@@ -101,8 +104,8 @@ namespace ACS.Inventory_Management
             _dataGridView_devices.Columns[13].Name = "Numbers";
             _dataGridView_devices.Columns[14].Name = "Port";
 
-
-            //_dataGridView_devices.ScrollBars = true;
+            _dataGridView_devices.RowsDefaultCellStyle.BackColor = Color.White;
+            _dataGridView_devices.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
         }
 
         private void disable_edit()
@@ -122,7 +125,7 @@ namespace ACS.Inventory_Management
             _textBox_phone.ReadOnly = true;
             _textBox_place.ReadOnly = true;
             _textBox_status.ReadOnly = true;
-            
+
         }
 
         private void load_treeview()
@@ -135,7 +138,6 @@ namespace ACS.Inventory_Management
 
             for (int i = 0; i < v_category.Count; i++)
             {
-
                 TreeNode node = new TreeNode(v_category[i][1]);
                 node.ImageIndex = Convert.ToInt16(v_category[i][3]);
                 nodeCategorys[i] = node;
@@ -253,7 +255,6 @@ namespace ACS.Inventory_Management
                     {
                         if (line[1] == e.Node.Text)
                         {
-
                             fmd.CommandText = @"SELECT * FROM Devices WHERE CategoryID like " + "\"" + line[0] + "\"";
                             fmd.CommandType = CommandType.Text;
                             SQLiteDataReader r = fmd.ExecuteReader();
@@ -328,21 +329,28 @@ namespace ACS.Inventory_Management
             {
                 if (e.Node.Level == 1)
                 {
-                    _contextMenuStrip_treeview.Items[0].Enabled = true; // reload
-                    _contextMenuStrip_treeview.Items[1].Enabled = true; // view on table
-
-                    _treeView_device.SelectedNode = e.Node;
-
+                    _treeView_device.SelectedNode = e.Node; // select node on click
+                    _contextMenuStrip_treeview.Items[2].Enabled = true; // reload
+                    _contextMenuStrip_treeview.Items[0].Enabled = true; // view on table
+                    _contextMenuStrip_treeview.Items[4].Enabled = false; // edit node device
                     _contextMenuStrip_treeview.Show(MousePosition);
                 }
-                else if(e.Node.Level == 0)
+                else if (e.Node.Level == 0)
                 {
-                    
-                    _contextMenuStrip_treeview.Items[1].Enabled = false; // view on table
-
+                    _treeView_device.SelectedNode = e.Node; // select node on click
+                    _contextMenuStrip_treeview.Items[0].Enabled = false; // view on table
+                    _contextMenuStrip_treeview.Items[4].Enabled = false; // edit node device
                     _contextMenuStrip_treeview.Show(MousePosition);
                 }
-                    
+                else if (e.Node.Level == 2)
+                {
+                    _treeView_device.SelectedNode = e.Node; // select node on click
+                    _contextMenuStrip_treeview.Items[3].Enabled = true; // reload
+                    _contextMenuStrip_treeview.Items[0].Enabled = false; // view on table
+                    if (v_acces == 0 || v_acces == 1)
+                        _contextMenuStrip_treeview.Items[4].Enabled = true; // edit node device
+                    _contextMenuStrip_treeview.Show(MousePosition);
+                }
             }
 
         }
@@ -368,27 +376,45 @@ namespace ACS.Inventory_Management
         private void _dataGridView_devices_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             // view detail of device
-            _textBox_code.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _textBox_datein.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[3].Value.ToString();
-            _textBox_dateout.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[4].Value.ToString();
-            _textBox_devicename.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[9].Value.ToString();
-            _textBox_IMET.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[12].Value.ToString();
-            _textBox_note.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[7].Value.ToString();
-            _textBox_numbers.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[13].Value.ToString();
-            _textBox_phone.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[11].Value.ToString();
-            _textBox_port.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[14].Value.ToString();
-            _textBox_series.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _textBox_SN.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[10].Value.ToString();
-            _textBox_usedby.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[8].Value.ToString();
-            _textBox_status.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[5].Value.ToString();
-            _textBox_place.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[6].Value.ToString();
-            _textBox_model.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[0].Value.ToString();
+            try
+            {
+                //_dataGridView_devices.Rows[v_rowIndex].Selected = false;
+                //_dataGridView_devices.Rows[e.RowIndex].Selected = true;
+                if (e.Button == MouseButtons.Left)
+                {
+                    //  _dataGridView_devices.Rows[v_rowIndex].Selected = false;
+
+                    _textBox_code.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    _textBox_datein.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    _textBox_dateout.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    _textBox_devicename.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    _textBox_IMET.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[12].Value.ToString();
+                    _textBox_note.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    _textBox_numbers.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[13].Value.ToString();
+                    _textBox_phone.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    _textBox_port.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[14].Value.ToString();
+                    _textBox_series.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    _textBox_SN.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    _textBox_usedby.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    _textBox_status.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    _textBox_place.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    _textBox_model.Text = _dataGridView_devices.Rows[e.RowIndex].Cells[0].Value.ToString();
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+                    _dataGridView_devices.CurrentCell = _dataGridView_devices.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    _dataGridView_devices.Rows[e.RowIndex].Selected = true;
+
+                    _contextMenuStrip_girdview.Show(MousePosition);
+                }
+            }
+            catch (Exception) { };
         }
 
         private void viewOnTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // view devices on table
-            
+
             // clear old data
             _dataGridView_devices.Rows.Clear();
             _dataGridView_devices.Update();
@@ -423,8 +449,133 @@ namespace ACS.Inventory_Management
             }
             v_conn.Close();
             _dataGridView_devices.Update();
+            v_selectNodeText = _treeView_device.SelectedNode.Text;
         }
 
-      
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reloadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // clear old data
+            _dataGridView_devices.Rows.Clear();
+            _dataGridView_devices.Update();
+            // double click on category ==> show detail of all detail in category
+            v_conn.Open();
+            using (SQLiteCommand fmd = v_conn.CreateCommand())
+            {
+                foreach (string[] line in v_category)
+                {
+                    if (line[1] == v_selectNodeText)
+                    {
+
+                        fmd.CommandText = @"SELECT * FROM Devices WHERE CategoryID like " + "\"" + line[0] + "\"";
+                        fmd.CommandType = CommandType.Text;
+                        SQLiteDataReader r = fmd.ExecuteReader();
+
+                        int count = 0;
+                        while (r.Read())
+                        {
+                            string[] row = new string[] { Convert.ToString(r["Model"]), Convert.ToString(r["AssetCode"]), Convert.ToString(r["Series"]),
+                                    Convert.ToString(r["DateIn"]),Convert.ToString(r["DateOut"]),Convert.ToString(r["Status"]),Convert.ToString(r["Place"]),
+                                    Convert.ToString(r["Note"]),Convert.ToString(r["UserBy"]),Convert.ToString(r["Name"]),Convert.ToString(r["SN"]),
+                                    Convert.ToString(r["PhoneNumber"]), Convert.ToString(r["IMEI"]),Convert.ToString(r["Numbers"]), Convert.ToString(r["Ports"])};
+                            _dataGridView_devices.Rows.Add(row);
+                            _dataGridView_devices.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
+                            count++;
+                        }
+                        break;
+                        r.Close();
+                    }
+                }
+            }
+            v_conn.Close();
+            _dataGridView_devices.Update();
+        }
+
+        private void _pictureBox_find_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (_textBox_findwhat.Text != "")
+                {
+                    string findIn = null;
+                    
+                    if (_comboBox_findIn.Text == "")
+                    {
+                        findIn = "Anything";
+                        find_fn(_textBox_findwhat.Text, findIn, "");
+                    }
+                    else
+                    {
+                        findIn = _comboBox_findIn.Text;
+                        find_fn(_textBox_findwhat.Text, findIn, _comboBox_findIn.Text);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("What do you want to search!?", "Find empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception x) {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void find_fn(string findwhat, string findIn, string text)
+        {
+            // clear old data
+            _dataGridView_devices.Rows.Clear();
+            _dataGridView_devices.Update();
+            // double click on category ==> show detail of all detail in category
+            v_conn.Open();
+            using (SQLiteCommand fmd = v_conn.CreateCommand())
+            {
+                if (findIn == "Anything")
+                    fmd.CommandText = @"SELECT * FROM Devices WHERE Model GLOB " + "\'*" + findwhat + "*\' OR " + "AssetCode GLOB " + "\'*" + findwhat + "*\' OR "
+                         + "Series GLOB " + "\'*" + findwhat + "*\' OR " + "DateIn GLOB " + "\'*" + findwhat + "*\' OR "
+                          + "DateOut GLOB " + "\'*" + findwhat + "*\' OR " + "Status GLOB " + "\'*" + findwhat + "*\' OR "
+                           + "Place GLOB " + "\'*" + findwhat + "*\' OR " + "Note GLOB " + "\'*" + findwhat + "*\' OR "
+                            + "UserBy GLOB " + "\'*" + findwhat + "*\' OR " + "Name GLOB " + "\'*" + findwhat + "*\' OR "
+                             + "SN GLOB " + "\'*" + findwhat + "*\' OR " + "PhoneNumber GLOB " + "\'*" + findwhat + "*\' OR "
+                              + "IMEI GLOB " + "\'*" + findwhat + "*\' OR " + "Numbers GLOB " + "\'*" + findwhat + "*\' OR "
+                               + "Ports GLOB " + "\'*" + findwhat + "*\'";
+                else
+                {
+                    fmd.CommandText = @"SELECT * FROM Devices WHERE CategoryID LIKE "+ "(SELECT CategoryID FROM Category WHERE CategoryName LIKE \'" + text + "\' ) "
+                        + "AND (Model GLOB " + "\'*" + findwhat + "*\' OR " + "AssetCode GLOB " + "\'*" + findwhat + "*\' OR "
+                        + "Series GLOB " + "\'*" + findwhat + "*\' OR " + "DateIn GLOB " + "\'*" + findwhat + "*\' OR "
+                          + "DateOut GLOB " + "\'*" + findwhat + "*\' OR " + "Status GLOB " + "\'*" + findwhat + "*\' OR "
+                           + "Place GLOB " + "\'*" + findwhat + "*\' OR " + "Note GLOB " + "\'*" + findwhat + "*\' OR "
+                            + "UserBy GLOB " + "\'*" + findwhat + "*\' OR " + "Name GLOB " + "\'*" + findwhat + "*\' OR "
+                             + "SN GLOB " + "\'*" + findwhat + "*\' OR " + "PhoneNumber GLOB " + "\'*" + findwhat + "*\' OR "
+                              + "IMEI GLOB " + "\'*" + findwhat + "*\' OR " + "Numbers GLOB " + "\'*" + findwhat + "*\' OR "
+                               + "Ports GLOB " + "\'*" + findwhat + "*\')";
+                }
+                //MessageBox.Show(fmd.CommandText);
+                fmd.CommandType = CommandType.Text;
+                SQLiteDataReader r = fmd.ExecuteReader();
+
+                int count = 0;
+                while (r.Read())
+                {
+                    string[] row = new string[] { Convert.ToString(r["Model"]), Convert.ToString(r["AssetCode"]), Convert.ToString(r["Series"]),
+                                    Convert.ToString(r["DateIn"]),Convert.ToString(r["DateOut"]),Convert.ToString(r["Status"]),Convert.ToString(r["Place"]),
+                                    Convert.ToString(r["Note"]),Convert.ToString(r["UserBy"]),Convert.ToString(r["Name"]),Convert.ToString(r["SN"]),
+                                    Convert.ToString(r["PhoneNumber"]), Convert.ToString(r["IMEI"]),Convert.ToString(r["Numbers"]), Convert.ToString(r["Ports"])};
+                    _dataGridView_devices.Rows.Add(row);
+                    _dataGridView_devices.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
+                    count++;
+                }
+
+                r.Close();
+            }
+            v_conn.Close();
+            _dataGridView_devices.Update();
+        }
     }
 }

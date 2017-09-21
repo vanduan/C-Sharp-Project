@@ -47,11 +47,11 @@
             // _label_user
             // 
             this._label_user.AutoSize = true;
-            this._label_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._label_user.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._label_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label_user.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._label_user.Location = new System.Drawing.Point(22, 24);
             this._label_user.Name = "_label_user";
-            this._label_user.Size = new System.Drawing.Size(81, 15);
+            this._label_user.Size = new System.Drawing.Size(71, 15);
             this._label_user.TabIndex = 0;
             this._label_user.Text = "Username: ";
             // 
@@ -66,11 +66,11 @@
             // _label_passwd
             // 
             this._label_passwd.AutoSize = true;
-            this._label_passwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._label_passwd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._label_passwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label_passwd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._label_passwd.Location = new System.Drawing.Point(22, 62);
             this._label_passwd.Name = "_label_passwd";
-            this._label_passwd.Size = new System.Drawing.Size(77, 15);
+            this._label_passwd.Size = new System.Drawing.Size(67, 15);
             this._label_passwd.TabIndex = 2;
             this._label_passwd.Text = "Password: ";
             // 
@@ -85,9 +85,9 @@
             // 
             // _button_login
             // 
-            this._button_login.BackColor = System.Drawing.SystemColors.Control;
-            this._button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._button_login.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._button_login.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this._button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._button_login.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._button_login.Location = new System.Drawing.Point(329, 21);
             this._button_login.Name = "_button_login";
             this._button_login.Size = new System.Drawing.Size(75, 23);
@@ -98,9 +98,9 @@
             // 
             // _button_config
             // 
-            this._button_config.BackColor = System.Drawing.SystemColors.Control;
-            this._button_config.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._button_config.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._button_config.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this._button_config.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._button_config.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._button_config.Location = new System.Drawing.Point(329, 60);
             this._button_config.Name = "_button_config";
             this._button_config.Size = new System.Drawing.Size(75, 23);
@@ -127,9 +127,9 @@
             // 
             // _button_test_conn
             // 
-            this._button_test_conn.BackColor = System.Drawing.SystemColors.Control;
-            this._button_test_conn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._button_test_conn.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this._button_test_conn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this._button_test_conn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._button_test_conn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._button_test_conn.Location = new System.Drawing.Point(252, 81);
             this._button_test_conn.Name = "_button_test_conn";
             this._button_test_conn.Size = new System.Drawing.Size(140, 23);
@@ -140,9 +140,9 @@
             // 
             // _button_browser_file_db
             // 
-            this._button_browser_file_db.BackColor = System.Drawing.SystemColors.Control;
-            this._button_browser_file_db.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._button_browser_file_db.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this._button_browser_file_db.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this._button_browser_file_db.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._button_browser_file_db.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._button_browser_file_db.Location = new System.Drawing.Point(317, 28);
             this._button_browser_file_db.Name = "_button_browser_file_db";
             this._button_browser_file_db.Size = new System.Drawing.Size(75, 23);
@@ -164,7 +164,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 65);
+            this.label2.Location = new System.Drawing.Point(9, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 13);
             this.label2.TabIndex = 8;
@@ -192,6 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(426, 230);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this._button_config);
@@ -201,6 +202,7 @@
             this.Controls.Add(this._textBox_username);
             this.Controls.Add(this._label_user);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximumSize = new System.Drawing.Size(442, 269);
             this.MinimumSize = new System.Drawing.Size(442, 136);
             this.Name = "Form_Login";
