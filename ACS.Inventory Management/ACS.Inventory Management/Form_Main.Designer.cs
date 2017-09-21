@@ -47,10 +47,46 @@
             this._button_Admin = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._treeView_device = new System.Windows.Forms.TreeView();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._dataGridView_device = new System.Windows.Forms.DataGridView();
             this._imageList_device = new System.Windows.Forms.ImageList(this.components);
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this._groupBox_detail = new System.Windows.Forms.GroupBox();
+            this._label_type = new System.Windows.Forms.Label();
+            this._textBox_place = new System.Windows.Forms.TextBox();
+            this._textBox_status = new System.Windows.Forms.TextBox();
+            this._textBox_model = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this._textBox_port = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this._textBox_numbers = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this._textBox_IMET = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this._textBox_phone = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this._textBox_SN = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this._textBox_devicename = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this._textBox_usedby = new System.Windows.Forms.TextBox();
+            this._textBox_dateout = new System.Windows.Forms.TextBox();
+            this._textBox_datein = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this._textBox_note = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this._textBox_series = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this._textBox_code = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this._dataGridView_devices = new System.Windows.Forms.DataGridView();
+            this._label_userdisplay = new System.Windows.Forms.Label();
+            this._contextMenuStrip_treeview = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewOnTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._comboBox_type = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,7 +98,9 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._dataGridView_device)).BeginInit();
+            this._groupBox_detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridView_devices)).BeginInit();
+            this._contextMenuStrip_treeview.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -73,7 +111,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1244, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1305, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -124,15 +162,14 @@
             this.panel1.Controls.Add(this._button_Admin);
             this.panel1.Location = new System.Drawing.Point(12, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1220, 53);
+            this.panel1.Size = new System.Drawing.Size(1281, 53);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::ACS.Inventory_Management.Properties.Resources.find_next;
-            this.pictureBox1.Location = new System.Drawing.Point(1165, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(1226, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(43, 33);
             this.pictureBox1.TabIndex = 0;
@@ -142,7 +179,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(939, 26);
+            this.label2.Location = new System.Drawing.Point(1000, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 6;
@@ -152,7 +189,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(642, 26);
+            this.label1.Location = new System.Drawing.Point(703, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
@@ -162,7 +199,7 @@
             // 
             this._comboBox_findIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._comboBox_findIn.FormattingEnabled = true;
-            this._comboBox_findIn.Location = new System.Drawing.Point(973, 22);
+            this._comboBox_findIn.Location = new System.Drawing.Point(1034, 22);
             this._comboBox_findIn.Name = "_comboBox_findIn";
             this._comboBox_findIn.Size = new System.Drawing.Size(177, 21);
             this._comboBox_findIn.TabIndex = 4;
@@ -170,11 +207,10 @@
             // _textBox_findwhat
             // 
             this._textBox_findwhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBox_findwhat.Location = new System.Drawing.Point(701, 22);
+            this._textBox_findwhat.Location = new System.Drawing.Point(762, 22);
             this._textBox_findwhat.Name = "_textBox_findwhat";
             this._textBox_findwhat.Size = new System.Drawing.Size(235, 20);
             this._textBox_findwhat.TabIndex = 3;
-            this._textBox_findwhat.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // _button_Account
             // 
@@ -217,7 +253,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(12, 106);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 88);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -227,60 +263,23 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1220, 615);
-            this.splitContainer1.SplitterDistance = 205;
+            this.splitContainer1.Size = new System.Drawing.Size(1281, 607);
+            this.splitContainer1.SplitterDistance = 215;
             this.splitContainer1.TabIndex = 2;
             // 
             // _treeView_device
             // 
             this._treeView_device.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._treeView_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._treeView_device.ImageIndex = 22;
             this._treeView_device.ImageList = this._imageList_device;
             this._treeView_device.Location = new System.Drawing.Point(0, 0);
             this._treeView_device.Name = "_treeView_device";
             this._treeView_device.SelectedImageIndex = 21;
-            this._treeView_device.Size = new System.Drawing.Size(205, 615);
+            this._treeView_device.Size = new System.Drawing.Size(215, 607);
             this._treeView_device.TabIndex = 0;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this._dataGridView_device);
-            this.splitContainer2.Size = new System.Drawing.Size(1023, 668);
-            this.splitContainer2.SplitterDistance = 411;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Location = new System.Drawing.Point(0, -6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1011, 385);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // _dataGridView_device
-            // 
-            this._dataGridView_device.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataGridView_device.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGridView_device.Location = new System.Drawing.Point(0, 0);
-            this._dataGridView_device.Name = "_dataGridView_device";
-            this._dataGridView_device.Size = new System.Drawing.Size(1023, 253);
-            this._dataGridView_device.TabIndex = 0;
+            this._treeView_device.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this._treeView_device_NodeMouseClick);
+            this._treeView_device.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this._treeView_device_NodeMouseDoubleClick);
             // 
             // _imageList_device
             // 
@@ -310,11 +309,410 @@
             this._imageList_device.Images.SetKeyName(21, "play.png");
             this._imageList_device.Images.SetKeyName(22, "candy_store.png");
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this._groupBox_detail);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this._dataGridView_devices);
+            this.splitContainer2.Size = new System.Drawing.Size(1062, 607);
+            this.splitContainer2.SplitterDistance = 304;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // _groupBox_detail
+            // 
+            this._groupBox_detail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._groupBox_detail.BackColor = System.Drawing.Color.White;
+            this._groupBox_detail.Controls.Add(this._comboBox_type);
+            this._groupBox_detail.Controls.Add(this._label_type);
+            this._groupBox_detail.Controls.Add(this._textBox_place);
+            this._groupBox_detail.Controls.Add(this._textBox_status);
+            this._groupBox_detail.Controls.Add(this._textBox_model);
+            this._groupBox_detail.Controls.Add(this.label17);
+            this._groupBox_detail.Controls.Add(this._textBox_port);
+            this._groupBox_detail.Controls.Add(this.label16);
+            this._groupBox_detail.Controls.Add(this._textBox_numbers);
+            this._groupBox_detail.Controls.Add(this.label15);
+            this._groupBox_detail.Controls.Add(this._textBox_IMET);
+            this._groupBox_detail.Controls.Add(this.label14);
+            this._groupBox_detail.Controls.Add(this._textBox_phone);
+            this._groupBox_detail.Controls.Add(this.label13);
+            this._groupBox_detail.Controls.Add(this._textBox_SN);
+            this._groupBox_detail.Controls.Add(this.label12);
+            this._groupBox_detail.Controls.Add(this._textBox_devicename);
+            this._groupBox_detail.Controls.Add(this.label3);
+            this._groupBox_detail.Controls.Add(this._textBox_usedby);
+            this._groupBox_detail.Controls.Add(this._textBox_dateout);
+            this._groupBox_detail.Controls.Add(this._textBox_datein);
+            this._groupBox_detail.Controls.Add(this.label11);
+            this._groupBox_detail.Controls.Add(this._textBox_note);
+            this._groupBox_detail.Controls.Add(this.label10);
+            this._groupBox_detail.Controls.Add(this.label9);
+            this._groupBox_detail.Controls.Add(this.label8);
+            this._groupBox_detail.Controls.Add(this.label7);
+            this._groupBox_detail.Controls.Add(this._textBox_series);
+            this._groupBox_detail.Controls.Add(this.label6);
+            this._groupBox_detail.Controls.Add(this._textBox_code);
+            this._groupBox_detail.Controls.Add(this.label5);
+            this._groupBox_detail.Controls.Add(this.label4);
+            this._groupBox_detail.Location = new System.Drawing.Point(0, -5);
+            this._groupBox_detail.Name = "_groupBox_detail";
+            this._groupBox_detail.Size = new System.Drawing.Size(1062, 307);
+            this._groupBox_detail.TabIndex = 0;
+            this._groupBox_detail.TabStop = false;
+            // 
+            // _label_type
+            // 
+            this._label_type.AutoSize = true;
+            this._label_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label_type.Location = new System.Drawing.Point(715, 214);
+            this._label_type.Name = "_label_type";
+            this._label_type.Size = new System.Drawing.Size(72, 15);
+            this._label_type.TabIndex = 38;
+            this._label_type.Text = "Select type: ";
+            // 
+            // _textBox_place
+            // 
+            this._textBox_place.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_place.Location = new System.Drawing.Point(97, 166);
+            this._textBox_place.Name = "_textBox_place";
+            this._textBox_place.Size = new System.Drawing.Size(181, 20);
+            this._textBox_place.TabIndex = 36;
+            // 
+            // _textBox_status
+            // 
+            this._textBox_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_status.Location = new System.Drawing.Point(97, 135);
+            this._textBox_status.Name = "_textBox_status";
+            this._textBox_status.Size = new System.Drawing.Size(181, 20);
+            this._textBox_status.TabIndex = 35;
+            // 
+            // _textBox_model
+            // 
+            this._textBox_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_model.Location = new System.Drawing.Point(97, 26);
+            this._textBox_model.Name = "_textBox_model";
+            this._textBox_model.Size = new System.Drawing.Size(181, 20);
+            this._textBox_model.TabIndex = 34;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(717, 102);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(35, 15);
+            this.label17.TabIndex = 33;
+            this.label17.Text = "Port: ";
+            // 
+            // _textBox_port
+            // 
+            this._textBox_port.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_port.Location = new System.Drawing.Point(812, 99);
+            this._textBox_port.Name = "_textBox_port";
+            this._textBox_port.Size = new System.Drawing.Size(180, 20);
+            this._textBox_port.TabIndex = 32;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(715, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 15);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Numbers: ";
+            // 
+            // _textBox_numbers
+            // 
+            this._textBox_numbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_numbers.Location = new System.Drawing.Point(812, 63);
+            this._textBox_numbers.Name = "_textBox_numbers";
+            this._textBox_numbers.Size = new System.Drawing.Size(180, 20);
+            this._textBox_numbers.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(715, 172);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 15);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "IMEI: ";
+            // 
+            // _textBox_IMET
+            // 
+            this._textBox_IMET.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_IMET.Location = new System.Drawing.Point(812, 169);
+            this._textBox_IMET.Name = "_textBox_IMET";
+            this._textBox_IMET.Size = new System.Drawing.Size(180, 20);
+            this._textBox_IMET.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(715, 136);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 15);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Phone number: ";
+            // 
+            // _textBox_phone
+            // 
+            this._textBox_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_phone.Location = new System.Drawing.Point(812, 133);
+            this._textBox_phone.Name = "_textBox_phone";
+            this._textBox_phone.Size = new System.Drawing.Size(180, 20);
+            this._textBox_phone.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(349, 141);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 15);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "S/N: ";
+            // 
+            // _textBox_SN
+            // 
+            this._textBox_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_SN.Location = new System.Drawing.Point(444, 138);
+            this._textBox_SN.Name = "_textBox_SN";
+            this._textBox_SN.Size = new System.Drawing.Size(180, 20);
+            this._textBox_SN.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(715, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 15);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Device name: ";
+            // 
+            // _textBox_devicename
+            // 
+            this._textBox_devicename.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_devicename.Location = new System.Drawing.Point(812, 26);
+            this._textBox_devicename.Name = "_textBox_devicename";
+            this._textBox_devicename.Size = new System.Drawing.Size(180, 20);
+            this._textBox_devicename.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(349, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 15);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Used by: ";
+            // 
+            // _textBox_usedby
+            // 
+            this._textBox_usedby.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_usedby.Location = new System.Drawing.Point(443, 106);
+            this._textBox_usedby.Name = "_textBox_usedby";
+            this._textBox_usedby.Size = new System.Drawing.Size(180, 20);
+            this._textBox_usedby.TabIndex = 20;
+            // 
+            // _textBox_dateout
+            // 
+            this._textBox_dateout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_dateout.Location = new System.Drawing.Point(442, 59);
+            this._textBox_dateout.Name = "_textBox_dateout";
+            this._textBox_dateout.Size = new System.Drawing.Size(181, 20);
+            this._textBox_dateout.TabIndex = 19;
+            // 
+            // _textBox_datein
+            // 
+            this._textBox_datein.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_datein.Location = new System.Drawing.Point(442, 25);
+            this._textBox_datein.Name = "_textBox_datein";
+            this._textBox_datein.Size = new System.Drawing.Size(181, 20);
+            this._textBox_datein.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(16, 214);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 15);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Note:  ";
+            // 
+            // _textBox_note
+            // 
+            this._textBox_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_note.Location = new System.Drawing.Point(97, 203);
+            this._textBox_note.Multiline = true;
+            this._textBox_note.Name = "_textBox_note";
+            this._textBox_note.Size = new System.Drawing.Size(527, 42);
+            this._textBox_note.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(16, 169);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 15);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Place:  ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 138);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 15);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Status: ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(348, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 15);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Date out: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(348, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Date in: ";
+            // 
+            // _textBox_series
+            // 
+            this._textBox_series.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_series.Location = new System.Drawing.Point(97, 93);
+            this._textBox_series.Name = "_textBox_series";
+            this._textBox_series.Size = new System.Drawing.Size(181, 20);
+            this._textBox_series.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 15);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Series: ";
+            // 
+            // _textBox_code
+            // 
+            this._textBox_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBox_code.Location = new System.Drawing.Point(97, 60);
+            this._textBox_code.Name = "_textBox_code";
+            this._textBox_code.Size = new System.Drawing.Size(181, 20);
+            this._textBox_code.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 15);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Asset code: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 15);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Model: ";
+            // 
+            // _dataGridView_devices
+            // 
+            this._dataGridView_devices.AllowUserToAddRows = false;
+            this._dataGridView_devices.AllowUserToDeleteRows = false;
+            this._dataGridView_devices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this._dataGridView_devices.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this._dataGridView_devices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataGridView_devices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataGridView_devices.Location = new System.Drawing.Point(0, 0);
+            this._dataGridView_devices.Name = "_dataGridView_devices";
+            this._dataGridView_devices.ReadOnly = true;
+            this._dataGridView_devices.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this._dataGridView_devices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._dataGridView_devices.Size = new System.Drawing.Size(1062, 299);
+            this._dataGridView_devices.TabIndex = 0;
+            this._dataGridView_devices.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._dataGridView_devices_CellMouseClick);
+            // 
+            // _label_userdisplay
+            // 
+            this._label_userdisplay.AutoSize = true;
+            this._label_userdisplay.Location = new System.Drawing.Point(1040, 9);
+            this._label_userdisplay.Name = "_label_userdisplay";
+            this._label_userdisplay.Size = new System.Drawing.Size(0, 13);
+            this._label_userdisplay.TabIndex = 3;
+            // 
+            // _contextMenuStrip_treeview
+            // 
+            this._contextMenuStrip_treeview.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reloadToolStripMenuItem,
+            this.viewOnTableToolStripMenuItem});
+            this._contextMenuStrip_treeview.Name = "_contextMenuStrip_treeview";
+            this._contextMenuStrip_treeview.Size = new System.Drawing.Size(146, 48);
+            // 
+            // reloadToolStripMenuItem
+            // 
+            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.reloadToolStripMenuItem.Text = "Reload";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
+            // 
+            // viewOnTableToolStripMenuItem
+            // 
+            this.viewOnTableToolStripMenuItem.Name = "viewOnTableToolStripMenuItem";
+            this.viewOnTableToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.viewOnTableToolStripMenuItem.Text = "View on table";
+            this.viewOnTableToolStripMenuItem.Click += new System.EventHandler(this.viewOnTableToolStripMenuItem_Click);
+            // 
+            // _comboBox_type
+            // 
+            this._comboBox_type.FormattingEnabled = true;
+            this._comboBox_type.Location = new System.Drawing.Point(812, 211);
+            this._comboBox_type.Name = "_comboBox_type";
+            this._comboBox_type.Size = new System.Drawing.Size(180, 21);
+            this._comboBox_type.TabIndex = 39;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 749);
+            this.ClientSize = new System.Drawing.Size(1305, 724);
+            this.Controls.Add(this._label_userdisplay);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -335,7 +733,10 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._dataGridView_device)).EndInit();
+            this._groupBox_detail.ResumeLayout(false);
+            this._groupBox_detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridView_devices)).EndInit();
+            this._contextMenuStrip_treeview.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,7 +754,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView _treeView_device;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView _dataGridView_device;
+        private System.Windows.Forms.DataGridView _dataGridView_devices;
         private System.Windows.Forms.Button _button_Admin;
         private System.Windows.Forms.Button _button_manager;
         private System.Windows.Forms.Button _button_Account;
@@ -362,7 +763,43 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox _groupBox_detail;
         private System.Windows.Forms.ImageList _imageList_device;
+        private System.Windows.Forms.Label _label_userdisplay;
+        private System.Windows.Forms.TextBox _textBox_series;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox _textBox_code;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox _textBox_note;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox _textBox_dateout;
+        private System.Windows.Forms.TextBox _textBox_datein;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox _textBox_port;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox _textBox_numbers;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox _textBox_IMET;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox _textBox_phone;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox _textBox_SN;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox _textBox_devicename;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox _textBox_usedby;
+        private System.Windows.Forms.TextBox _textBox_model;
+        private System.Windows.Forms.TextBox _textBox_place;
+        private System.Windows.Forms.TextBox _textBox_status;
+        private System.Windows.Forms.ContextMenuStrip _contextMenuStrip_treeview;
+        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewOnTableToolStripMenuItem;
+        private System.Windows.Forms.Label _label_type;
+        private System.Windows.Forms.ComboBox _comboBox_type;
     }
 }
