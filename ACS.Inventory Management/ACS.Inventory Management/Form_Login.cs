@@ -202,5 +202,45 @@ namespace ACS.Inventory_Management
             }
             return hash;
         }
+
+        private void _textBox_passwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                try
+                {
+                    string fileName = _textBox_file_db.Text;
+                    string passwd = _textBox_passwd_file_db.Text;
+                    v_conn = new System.Data.SQLite.SQLiteConnection("Data Source=" + fileName.Replace("\\", "\\\\") + ";Version=3;Password=" + passwd + ";");
+
+                    if (check_user())
+                        openMainForm();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Can't login right now.\n Please check your config!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void _textBox_username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                try
+                {
+                    string fileName = _textBox_file_db.Text;
+                    string passwd = _textBox_passwd_file_db.Text;
+                    v_conn = new System.Data.SQLite.SQLiteConnection("Data Source=" + fileName.Replace("\\", "\\\\") + ";Version=3;Password=" + passwd + ";");
+
+                    if (check_user())
+                        openMainForm();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Can't login right now.\n Please check your config!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

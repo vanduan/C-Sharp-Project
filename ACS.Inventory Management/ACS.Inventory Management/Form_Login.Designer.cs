@@ -62,6 +62,7 @@
             this._textBox_username.Name = "_textBox_username";
             this._textBox_username.Size = new System.Drawing.Size(195, 21);
             this._textBox_username.TabIndex = 1;
+            this._textBox_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._textBox_username_KeyPress);
             // 
             // _label_passwd
             // 
@@ -82,6 +83,7 @@
             this._textBox_passwd.PasswordChar = '*';
             this._textBox_passwd.Size = new System.Drawing.Size(195, 21);
             this._textBox_passwd.TabIndex = 3;
+            this._textBox_passwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._textBox_passwd_KeyPress);
             // 
             // _button_login
             // 

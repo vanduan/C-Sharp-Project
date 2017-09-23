@@ -43,7 +43,6 @@
             this._comboBox_findIn = new System.Windows.Forms.ComboBox();
             this._textBox_findwhat = new System.Windows.Forms.TextBox();
             this._button_Account = new System.Windows.Forms.Button();
-            this._button_manager = new System.Windows.Forms.Button();
             this._button_Admin = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._treeView_device = new System.Windows.Forms.TreeView();
@@ -90,13 +89,22 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this._contextMenuStrip_girdview = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reloadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.showHistoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._progressBar = new System.Windows.Forms.ProgressBar();
+            this._label_result = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_find)).BeginInit();
@@ -169,7 +177,6 @@
             this.panel1.Controls.Add(this._comboBox_findIn);
             this.panel1.Controls.Add(this._textBox_findwhat);
             this.panel1.Controls.Add(this._button_Account);
-            this.panel1.Controls.Add(this._button_manager);
             this.panel1.Controls.Add(this._button_Admin);
             this.panel1.Location = new System.Drawing.Point(12, 28);
             this.panel1.Name = "panel1";
@@ -179,19 +186,23 @@
             // _pictureBox_find
             // 
             this._pictureBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._pictureBox_find.BackColor = System.Drawing.Color.LightGray;
             this._pictureBox_find.Image = global::ACS.Inventory_Management.Properties.Resources.find_next;
-            this._pictureBox_find.Location = new System.Drawing.Point(1165, 16);
+            this._pictureBox_find.Location = new System.Drawing.Point(1182, 16);
             this._pictureBox_find.Name = "_pictureBox_find";
-            this._pictureBox_find.Size = new System.Drawing.Size(43, 33);
+            this._pictureBox_find.Size = new System.Drawing.Size(35, 33);
             this._pictureBox_find.TabIndex = 0;
             this._pictureBox_find.TabStop = false;
             this._pictureBox_find.Click += new System.EventHandler(this._pictureBox_find_Click);
+            this._pictureBox_find.MouseEnter += new System.EventHandler(this._pictureBox_find_MouseEnter);
+            this._pictureBox_find.MouseLeave += new System.EventHandler(this._pictureBox_find_MouseLeave);
+            this._pictureBox_find.MouseHover += new System.EventHandler(this._pictureBox_find_MouseHover);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(939, 26);
+            this.label2.Location = new System.Drawing.Point(956, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 6;
@@ -201,7 +212,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(642, 26);
+            this.label1.Location = new System.Drawing.Point(659, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
@@ -211,7 +222,7 @@
             // 
             this._comboBox_findIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._comboBox_findIn.FormattingEnabled = true;
-            this._comboBox_findIn.Location = new System.Drawing.Point(973, 22);
+            this._comboBox_findIn.Location = new System.Drawing.Point(990, 22);
             this._comboBox_findIn.Name = "_comboBox_findIn";
             this._comboBox_findIn.Size = new System.Drawing.Size(177, 21);
             this._comboBox_findIn.TabIndex = 4;
@@ -219,34 +230,24 @@
             // _textBox_findwhat
             // 
             this._textBox_findwhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBox_findwhat.Location = new System.Drawing.Point(701, 22);
+            this._textBox_findwhat.Location = new System.Drawing.Point(718, 22);
             this._textBox_findwhat.Name = "_textBox_findwhat";
             this._textBox_findwhat.Size = new System.Drawing.Size(235, 20);
             this._textBox_findwhat.TabIndex = 3;
+            this._textBox_findwhat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._textBox_findwhat_KeyPress);
             // 
             // _button_Account
             // 
             this._button_Account.Image = global::ACS.Inventory_Management.Properties.Resources.account_settings;
             this._button_Account.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this._button_Account.Location = new System.Drawing.Point(150, 0);
+            this._button_Account.Location = new System.Drawing.Point(91, 0);
             this._button_Account.Name = "_button_Account";
             this._button_Account.Size = new System.Drawing.Size(69, 53);
             this._button_Account.TabIndex = 2;
             this._button_Account.Text = "Account";
             this._button_Account.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this._button_Account.UseVisualStyleBackColor = true;
-            // 
-            // _button_manager
-            // 
-            this._button_manager.Image = global::ACS.Inventory_Management.Properties.Resources.data_transfer;
-            this._button_manager.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this._button_manager.Location = new System.Drawing.Point(75, 0);
-            this._button_manager.Name = "_button_manager";
-            this._button_manager.Size = new System.Drawing.Size(69, 53);
-            this._button_manager.TabIndex = 1;
-            this._button_manager.Text = "Manager";
-            this._button_manager.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this._button_manager.UseVisualStyleBackColor = true;
+            this._button_Account.MouseHover += new System.EventHandler(this._button_Account_MouseHover);
             // 
             // _button_Admin
             // 
@@ -259,6 +260,7 @@
             this._button_Admin.Text = "Admin";
             this._button_Admin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this._button_Admin.UseVisualStyleBackColor = true;
+            this._button_Admin.MouseHover += new System.EventHandler(this._button_Admin_MouseHover);
             // 
             // splitContainer1
             // 
@@ -288,6 +290,7 @@
             this._treeView_device.Location = new System.Drawing.Point(0, 0);
             this._treeView_device.Name = "_treeView_device";
             this._treeView_device.SelectedImageIndex = 21;
+            this._treeView_device.ShowNodeToolTips = true;
             this._treeView_device.Size = new System.Drawing.Size(204, 570);
             this._treeView_device.TabIndex = 0;
             this._treeView_device.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this._treeView_device_NodeMouseClick);
@@ -704,9 +707,11 @@
             this.toolStripSeparator3,
             this.reloadToolStripMenuItem,
             this.toolStripSeparator4,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.showHistoryToolStripMenuItem,
+            this.copyToolStripMenuItem1});
             this._contextMenuStrip_treeview.Name = "_contextMenuStrip_treeview";
-            this._contextMenuStrip_treeview.Size = new System.Drawing.Size(146, 82);
+            this._contextMenuStrip_treeview.Size = new System.Drawing.Size(146, 126);
             // 
             // viewOnTableToolStripMenuItem
             // 
@@ -736,11 +741,41 @@
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informationToolStripMenuItem,
+            this.statusToolStripMenuItem});
             this.editToolStripMenuItem.Image = global::ACS.Inventory_Management.Properties.Resources.edit;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // informationToolStripMenuItem
+            // 
+            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.informationToolStripMenuItem.Text = "Information";
+            // 
+            // statusToolStripMenuItem
+            // 
+            this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
+            this.statusToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.statusToolStripMenuItem.Text = "Status";
+            // 
+            // showHistoryToolStripMenuItem
+            // 
+            this.showHistoryToolStripMenuItem.Image = global::ACS.Inventory_Management.Properties.Resources.history;
+            this.showHistoryToolStripMenuItem.Name = "showHistoryToolStripMenuItem";
+            this.showHistoryToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.showHistoryToolStripMenuItem.Text = "Show history";
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Image = global::ACS.Inventory_Management.Properties.Resources.copy;
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
+            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
             // 
             // _contextMenuStrip_girdview
             // 
@@ -749,49 +784,91 @@
             this.toolStripSeparator2,
             this.copyToolStripMenuItem,
             this.editToolStripMenuItem1,
+            this.showHistoryToolStripMenuItem1,
             this.toolStripSeparator1,
             this.deleteToolStripMenuItem});
             this._contextMenuStrip_girdview.Name = "_contextMenuStrip_girdview";
-            this._contextMenuStrip_girdview.Size = new System.Drawing.Size(114, 104);
+            this._contextMenuStrip_girdview.Size = new System.Drawing.Size(143, 126);
             // 
             // reloadToolStripMenuItem1
             // 
             this.reloadToolStripMenuItem1.Image = global::ACS.Inventory_Management.Properties.Resources.refresh;
             this.reloadToolStripMenuItem1.Name = "reloadToolStripMenuItem1";
-            this.reloadToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
+            this.reloadToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.reloadToolStripMenuItem1.Text = "Refresh";
             this.reloadToolStripMenuItem1.Click += new System.EventHandler(this.reloadToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(110, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Image = global::ACS.Inventory_Management.Properties.Resources.copy;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
+            this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informationToolStripMenuItem1,
+            this.statusToolStripMenuItem1});
             this.editToolStripMenuItem1.Image = global::ACS.Inventory_Management.Properties.Resources.edit;
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.editToolStripMenuItem1.Text = "Edit";
+            // 
+            // informationToolStripMenuItem1
+            // 
+            this.informationToolStripMenuItem1.Name = "informationToolStripMenuItem1";
+            this.informationToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.informationToolStripMenuItem1.Text = "Information";
+            // 
+            // statusToolStripMenuItem1
+            // 
+            this.statusToolStripMenuItem1.Name = "statusToolStripMenuItem1";
+            this.statusToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.statusToolStripMenuItem1.Text = "Status";
+            // 
+            // showHistoryToolStripMenuItem1
+            // 
+            this.showHistoryToolStripMenuItem1.Image = global::ACS.Inventory_Management.Properties.Resources.history;
+            this.showHistoryToolStripMenuItem1.Name = "showHistoryToolStripMenuItem1";
+            this.showHistoryToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.showHistoryToolStripMenuItem1.Text = "Show history";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(110, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::ACS.Inventory_Management.Properties.Resources.delete_row;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // _progressBar
+            // 
+            this._progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._progressBar.Location = new System.Drawing.Point(220, 663);
+            this._progressBar.Name = "_progressBar";
+            this._progressBar.Size = new System.Drawing.Size(390, 20);
+            this._progressBar.TabIndex = 4;
+            // 
+            // _label_result
+            // 
+            this._label_result.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._label_result.AutoSize = true;
+            this._label_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label_result.Location = new System.Drawing.Point(627, 666);
+            this._label_result.Name = "_label_result";
+            this._label_result.Size = new System.Drawing.Size(0, 15);
+            this._label_result.TabIndex = 5;
             // 
             // Form_Main
             // 
@@ -799,6 +876,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1244, 687);
+            this.Controls.Add(this._label_result);
+            this.Controls.Add(this._progressBar);
             this.Controls.Add(this._label_userdisplay);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
@@ -845,7 +924,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView _dataGridView_devices;
         private System.Windows.Forms.Button _button_Admin;
-        private System.Windows.Forms.Button _button_manager;
         private System.Windows.Forms.Button _button_Account;
         private System.Windows.Forms.ComboBox _comboBox_findIn;
         private System.Windows.Forms.TextBox _textBox_findwhat;
@@ -900,5 +978,14 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showHistoryToolStripMenuItem1;
+        private System.Windows.Forms.ProgressBar _progressBar;
+        private System.Windows.Forms.Label _label_result;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
     }
 }
